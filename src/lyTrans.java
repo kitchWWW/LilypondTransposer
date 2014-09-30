@@ -85,7 +85,6 @@ public class lyTrans {
 			String secondHalf = ret.substring(posi+note.length());
 			ret = firstHalf+intToString(pitch,true)+secondHalf;
 		}
-		
 		return ret;
 	}
 	
@@ -115,28 +114,42 @@ public class lyTrans {
 	}
 	
 	private int stringToInt(String letter){
-		if(letter.startsWith("ces")){return 12 ;}
-		if(letter.startsWith("bis")){return 1 ;}
-		if(letter.startsWith("bes")){return 11 ;}
-		if(letter.startsWith("gis")){return 9 ;}
-		if(letter.startsWith("eis")){return 6 ;}
-		if(letter.startsWith("fis")){return 7 ;}
-		if(letter.startsWith("ges")){return 7 ;}
-		if(letter.startsWith("fes")){return 5 ;}
-		if(letter.startsWith("dis")){return 4 ;}
-		if(letter.startsWith("dis")){return 4 ;}
-		if(letter.startsWith("cis")){return 2 ;}
-		if(letter.startsWith("des")){return 2 ;}
-		if(letter.startsWith("es")){return 4 ;}
-		if(letter.startsWith("as")){return 9 ;}
-		if(letter.startsWith("ai")){return 11 ;}
-		if(letter.startsWith("c")){return 1 ;}
-		if(letter.startsWith("d")){return 3 ;}
-		if(letter.startsWith("e")){return 5 ;}
-		if(letter.startsWith("f")){return 6 ;}
-		if(letter.startsWith("g")){return 8 ;}
-		if(letter.startsWith("a")){return 10 ;}
-		if(letter.startsWith("b")){return 12 ;}
+		if(startsWith(letter,"ces")){return 12 ;}
+		if(startsWith(letter,"bis")){return 1 ;}
+		if(startsWith(letter,"bes")){return 11 ;}
+		if(startsWith(letter,"gis")){return 9 ;}
+		if(startsWith(letter,"eis")){return 6 ;}
+		if(startsWith(letter,"fis")){return 7 ;}
+		if(startsWith(letter,"ges")){return 7 ;}
+		if(startsWith(letter,"fes")){return 5 ;}
+		if(startsWith(letter,"dis")){return 4 ;}
+		if(startsWith(letter,"dis")){return 4 ;}
+		if(startsWith(letter,"cis")){return 2 ;}
+		if(startsWith(letter,"des")){return 2 ;}
+		if(startsWith(letter,"es")){return 4 ;}
+		if(startsWith(letter,"as")){return 9 ;}
+		if(startsWith(letter,"ai")){return 11 ;}
+		if(startsWith(letter,"c")){return 1 ;}
+		if(startsWith(letter,"d")){return 3 ;}
+		if(startsWith(letter,"e")){return 5 ;}
+		if(startsWith(letter,"f")){return 6 ;}
+		if(startsWith(letter,"g")){return 8 ;}
+		if(startsWith(letter,"a")){return 10 ;}
+		if(startsWith(letter,"b")){return 12 ;}
 		return -1;
+	}
+	/**
+	 * startsWith (like in string), but case insensitive
+	 * @param String to compare against
+	 * @param prefix we want
+	 * @return
+	 */
+	private boolean startsWith(String letter, String string) {
+		int l = string.length();
+		if(letter.length()<l){
+			return false;
+		}
+		String m = letter.substring(0,l);
+		return m.equalsIgnoreCase(string);
 	}
 }
